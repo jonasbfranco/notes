@@ -6,7 +6,7 @@ A proposta é criar uma aplicação simples, que sirva como uma validação inic
 
 As páginas desta wiki fornecem dicas e orientações para a construção do projeto. Contribuições e colaborações são bem-vindas.
 
-Para mais informações, acesse o Wiki do projeto [clicnado aqui!](https://github.com/jonasbfranco/notes/wiki), a Wiki contém o passo a passo para iniciar o projeto e chegar até o depoloy.
+Para mais informações, acesse o Wiki do projeto [clicando aqui!](https://github.com/jonasbfranco/notes/wiki), a Wiki contém o passo a passo para iniciar o projeto e chegar até o depoloy.
 
 Vamos colocar a mão na massa ?, ops... no código ? 😃 💻 🚀
 
