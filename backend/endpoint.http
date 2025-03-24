@@ -1,0 +1,6 @@
+### VErificar se o servidor esta no ar
+GET http://localhost:3333/ping
+
+
+### Listar todos os posts
+GET http://localhost:3333/annotations
