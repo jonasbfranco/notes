@@ -2,5 +2,22 @@
 GET http://localhost:3333/ping
 
 
-### Listar todos os posts
+### Listar todos as notas
 GET http://localhost:3333/annotations
+
+
+### Inserir uma nota
+POST http://localhost:3333/annotations
+Content-Type: application/json
+
+{
+    "title": "Oficina",
+    "notes": "Levar carro para trocar oleo de freio",
+    "priority": false
+}
+
+
+### Deletar uma nota
+DELETE  http://localhost:3333/annotations/4
+
+
