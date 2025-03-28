@@ -11,13 +11,28 @@ POST http://localhost:3333/annotations
 Content-Type: application/json
 
 {
-    "title": "Oficina",
-    "notes": "Levar carro para trocar oleo de freio",
-    "priority": false
+    "title": "Trabalho",
+    "notes": "Levar notebook para o escritório",
+    "priority": true
 }
 
 
 ### Deletar uma nota
-DELETE  http://localhost:3333/annotations/4
+DELETE http://localhost:3333/annotations/4
 
 
+### Deletar uma nota
+PUT http://localhost:3333/annotations/5
+Content-Type: application/json
+
+{
+    "notes": "Levar carro para trocar oleo de freio"
+}
+
+
+### Buscar todas as prioridades iguais a true
+GET http://localhost:3333/priorities?priority=false
+
+
+### Trocar prioridade da nota
+PUT http://localhost:3333/priorities/5
