@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #121212;
+  --foreground: #e4e7ef;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+html, body {
+  height: 100vh;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+aside {
+  width: 320px;
+  margin-bottom: 30px;
+  background: #1d1d1d;
+  box-shadow: 0 0 14px rgba(187, 134, 252, 0.2);
+  border-radius: 10px;
+  padding: 30px 20px;
+  position: fixed;
+}
+
+aside strong {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  color: #dbdbdb;
+}
+
+aside form {
+  margin-top: 30px
+}
+
+aside form .input-block {
+  margin-top: 20px
+}
+
+aside form .input-block label {
+  color: #dbdbdb;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+}
+
+aside form .input-block input {
+  width: 100%;
+  height:32px;
+  font-size: 14px;
+  color: #dbdbdb;
+  border: 0;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+aside form .input-block textarea {
+  margin-top: 7px;
+  width: 100%;
+  height: 200px;
+  font-size: 14px;
+  color: #dbdbdb;
+  border: 0;
+  border-bottom: 1px solid #dbdbdb;
+  background: #1d1d1d;
+  resize: none;
+}
+
+
+aside form button[type="submit"] {
+  width: 100%;
+  border: 0;
+  margin-top: 30px;
+  background: #bb86fc;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+main {
+  flex: 1;
+  margin-left: 350px;
+
+}
