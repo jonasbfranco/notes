@@ -11,22 +11,22 @@ POST http://localhost:3333/annotations
 Content-Type: application/json
 
 {
-    "title": "Trabalho",
+    "title": "Trabalho Teste",
     "notes": "Levar notebook para o escritório",
     "priority": true
 }
 
 
 ### Deletar uma nota
-DELETE http://localhost:3333/annotations/4
+DELETE http://localhost:3333/annotations/7
 
 
-### Deletar uma nota
+### Alterar uma nota
 PUT http://localhost:3333/annotations/5
 Content-Type: application/json
 
 {
-    "notes": "Levar carro para trocar oleo de freio"
+    "notes": "Levar carro para trocar oleo e pastilha de freio "
 }
 
 

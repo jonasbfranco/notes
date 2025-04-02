@@ -1,3 +1,5 @@
+import Notes from "./components/notes/notes";
+
 export default function Home() {
   return (
     <>
@@ -17,7 +19,9 @@ export default function Home() {
           </form>
         </aside>
         <main>
-          <div>notes</div>
+          <ul>
+            <Notes />
+          </ul>
         </main>
       </div>
     </>
