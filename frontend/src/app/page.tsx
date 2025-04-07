@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Notes from "@/app/components/notes/notes";
 import api from "@/services/api";
 
@@ -19,6 +19,16 @@ export default function Home() {
   const [allNotes, setAllNotes] = useState<Note[]>([]);
 
 
+  useEffect(() => {
+    getAllNotes();
+  },[]);
+
+  async function getAllNotes() {
+    const response = await api.get<Note[]>("/annotations");
+    setAllNotes(response.data)
+  };
+
+
   async function handleSubmit(e: any) {
     e.preventDefault();
     // return console.log(title, notes);
@@ -32,8 +42,32 @@ export default function Home() {
     setTitles("");
     setNotes("");
 
+    
+    getAllNotes()
+
 
   };
+
+
+
+  useEffect(() => {
+    function enableSubmitButton(){
+      let btn = document.getElementById("btn_submit") as HTMLButtonElement;
+      if (!btn) return;
+      btn.style.background = "#c8b6ff"
+      btn.style.cursor = "not-allowed"
+      btn.style.color = "#6c757d"
+      btn.disabled = true;
+
+      if (title && notes) {
+        btn.style.background = "#bb86fc"
+        btn.style.cursor = "pointer"
+        btn.style.color = "#1d1d1d"
+        btn.disabled = false;
+      }
+    }
+    enableSubmitButton();
+  },[title, notes]);
 
 
 
@@ -68,7 +102,12 @@ export default function Home() {
         </aside>
         <main>
           <ul>
-            <Notes />
+            {allNotes.map((data) => (
+              <Notes 
+                key={data.id}
+                note={data}
+              />
+            ))} 
           </ul>
         </main>
       </div>

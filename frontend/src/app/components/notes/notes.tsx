@@ -3,12 +3,21 @@ import { AiFillDelete, AiOutlineExclamationCircle } from "react-icons/ai";
 import "./styles.css";
 import "./styles-priority.css";
 
-export default function Notes() {
+type NoteProps = {
+    note: {
+        id: string;
+        title: string;
+        notes: string;
+        priority: boolean;
+    }
+}
+
+export default function Notes(props: NoteProps) {
     return (
         <>
             <li className="notepad-infos">
                 <div>
-                    <strong>Supermercado</strong>
+                    <strong>{props.note.title}</strong>
                     <div>
                         <AiFillDelete 
                             size={20}
@@ -16,7 +25,7 @@ export default function Notes() {
                     </div>
                 </div>
                 <textarea
-                    defaultValue={"Comprar pão, manteiga, chocolate e arroz."}
+                    defaultValue={props.note.notes}
                 />
                 <span>
                     <AiOutlineExclamationCircle 
