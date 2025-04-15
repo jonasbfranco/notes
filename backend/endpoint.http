@@ -2,7 +2,7 @@
 GET http://localhost:3333/ping
 
 
-### Listar todos as notas
+### Listar todas as notas
 GET http://localhost:3333/annotations
 
 
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 
 ### Deletar uma nota
-DELETE http://localhost:3333/annotations/7
+DELETE http://localhost:3333/annotations/12
 
 
 ### Alterar uma nota
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 
 ### Buscar todas as prioridades iguais a true
-GET http://localhost:3333/priorities?priority=false
+GET http://localhost:3333/priorities?priority=true
 
 
 ### Trocar prioridade da nota
