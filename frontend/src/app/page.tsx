@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Notes from "@/app/components/notes/notes";
 import api from "@/services/api";
+import { get } from "http";
 
 type Note = {
   id: string;
@@ -27,6 +28,23 @@ export default function Home() {
     const response = await api.get<Note[]>("/annotations");
     setAllNotes(response.data)
   };
+
+
+  async function handleDelete(id: string) {
+    const deleteNote = await api.delete(`/annotations/${id}`);
+
+    if (deleteNote) {
+      setAllNotes(allNotes.filter((note) => note.id !== id))
+    }
+  }
+
+  async function handleChangePriority(id: string) {
+    const note = await api.put(`/priorities/${id}`);
+
+    getAllNotes();    
+  }
+
+
 
 
   async function handleSubmit(e: any) {
@@ -106,6 +124,8 @@ export default function Home() {
               <Notes 
                 key={data.id}
                 note={data}
+                handleDelete={handleDelete}
+                handleChangePriority={handleChangePriority}
               />
             ))} 
           </ul>
