@@ -168,8 +168,40 @@ app.put("/priorities/:id", async (req, res) => {
 
 
 
+app.put("/contents/:id", async (req, res) => {
+    const { id } = req.params;
+    const { notes } = req.body;
 
+    try {
+        const annotation = await prisma.annotations.findUnique({
+            where: {
+                id: parseInt(id),
+            },
+        });
 
+        if (!annotation) {
+            return res.status(404).json({ error: "Anotação não encontrada"});
+        };
+
+        if (notes) {
+            const updateAnnotation = await prisma.annotations.update({
+                where: {
+                    id: parseInt(id),
+                },
+                data: {
+                    notes,
+                },
+            });
+            res.status(200).json(updateAnnotation);
+        }
+
+        
+    } catch (error) {
+        res.status(404).json({ error: "Erro ao atualizar o conteúdo da nota!"});
+    }
+    
+
+});
 
 
 
