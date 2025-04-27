@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Notes from "@/app/components/notes/notes";
 import api from "@/services/api";
-import { get } from "http";
+import { useEffect, useState } from "react";
+import ColorRadioButtons from "./components/RadioButton/RadioBuitton";
 
 type Note = {
   id: string;
@@ -44,6 +44,28 @@ export default function Home() {
     getAllNotes();    
   }
 
+  async function loadNotes(option: any) {
+    const params = { priority: option };
+    //console.log(params);
+    const response = await api.get<Note[]>("/priorities", { params });
+    //console.log(response.data);
+
+    if (response) {
+      setAllNotes(response.data);
+    }
+
+  };
+
+  const handleChange = (e: any) => {
+    setSelectedValue(e.value)
+
+    if (e.checked && e.value !== "all") {
+      loadNotes(e.value);
+    } else {
+      getAllNotes();
+    }
+  };
+
 
 
 
@@ -61,7 +83,11 @@ export default function Home() {
     setNotes("");
 
     
-    getAllNotes()
+    if (selectedValue !== "all") {
+      getAllNotes();
+    } else {
+      setAllNotes([...allNotes, response.data]);
+    }
 
 
   };
@@ -117,6 +143,10 @@ export default function Home() {
             </div>
             <button id="btn_submit" type="submit">Salvar</button>
           </form>
+          <ColorRadioButtons 
+            selectedValue={selectedValue}
+            handleChange={handleChange}
+          />
         </aside>
         <main>
           <ul>
